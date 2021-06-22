@@ -1,0 +1,32 @@
+{
+  "name": "ui-kit",
+  "version": "1.0.0",
+  "author": "Augusto Santos <augusto_santos55@hotmail.com>",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "storybook": "start-storybook -p 5005",
+    "build": "tsc -p ."
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^6.2.9",
+    "@storybook/addon-centered": "^5.3.21",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-info": "^5.3.21",
+    "@storybook/addon-toolbars": "^6.2.9",
+    "@storybook/react": "^6.2.9",
+    "@types/react": "^17.0.11",
+    "@types/styled-components": "^5.1.10",
+    "babel-loader": "^8.2.2",
+    "react": "^17.0.2",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-dom": "^17.0.2",
+    "storybook-addon-performance": "^0.16.0",
+    "ts-loader": "^9.2.3",
+    "typescript": "^4.3.4"
+  },
+  "dependencies": {
+    "polished": "^4.1.3",
+    "styled-components": "^5.3.0"
+  }
+}
