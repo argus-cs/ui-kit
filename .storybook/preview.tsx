@@ -1,15 +1,34 @@
-// import { addParameters } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import centered from '@storybook/addon-centered/react';
-
-// import theme from './theme';
+import { ThemeProvider } from 'styled-components';
+import { StoryContext } from '@storybook/react';
+import { Container } from '../src/components/Container';
 
 import './reset.css';
 
-// addParameters({
-//   options: {
-//     theme,
-//   },
-// });
+import { themeSchema } from '../src/theme';
 
-export const decorators = [withInfo, centered];
+/**
+ * Add global context for RTL-LTR switching
+ */
+ export const globalTypes = {
+    direction: {
+      name: "Direction",
+      description: "Direction for layout",
+      defaultValue: "LTR",
+      toolbar: {
+        icon: "globe",
+        items: ["LTR", "RTL"],
+      },
+    },
+  }
+
+const withTheme = (StoryFn: Function, context: StoryContext) => {
+    return (
+        <ThemeProvider theme={themeSchema} >
+          <Container centralize margin="2rem auto" >
+            <StoryFn />
+          </Container>
+        </ThemeProvider>
+    )
+}
+
+export const decorators = [withTheme];
