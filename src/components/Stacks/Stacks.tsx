@@ -13,7 +13,7 @@ export const Stacks: React.FC<StacksProps> = ({ children, ...props }) => (
 )
 
 Stacks.defaultProps = {
-    spacing: 1,
+    spacing: 0.5,
     direction: "row",
     justify: "center",
     align: "center",

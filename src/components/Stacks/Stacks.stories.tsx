@@ -2,6 +2,7 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 import { Stacks, StacksProps } from './';
+import { Button } from '../Button';
 
 export default {
     title: "Stacks",
@@ -28,8 +29,9 @@ export default {
 
 const Template: Story<StacksProps> = (args) => (
     <Stacks {...args}>
-        <p style={{background: 'red', padding: '1rem', minWidth: '3rem'}}>TESTE1</p>
-        <p style={{background: 'blue', padding: '1rem', minWidth: '3rem'}}>TESTE2</p>
+        <Button label="Export" color="secondary" type="button" />
+        <Button label="Download" color="primary" type="button" />
+        <Button label="Remover" color="danger" type="button" outline />
     </Stacks>
 );
 

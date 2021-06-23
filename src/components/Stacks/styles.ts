@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { StacksProps } from './types';
 
@@ -13,10 +13,18 @@ export const Container = styled.div<StacksProps>`
     flex-direction: ${props => props.direction};
     flex-wrap: ${props => props.wrap};
 
+    padding: 1rem;
+    overflow: hidden;
+
     & * + * {
-        margin-top: ${props => (props.direction == 'column' || props.direction == 'column-reverse') ? props.spacing : 0}rem;
-        margin-right: ${props => (props.direction == 'row' || props.direction == 'row-reverse') ? props.spacing : 0}rem;
-        margin-left: ${props => (props.direction == 'row' || props.direction == 'row-reverse') ? props.spacing : 0}rem;
-        margin-bottom: ${props => (props.direction == 'column' || props.direction == 'column-reverse') ? props.spacing : 0}rem;
+        ${ props => (props.direction == 'row' || props.direction == 'column') && css`
+            margin-top: ${props.direction == 'column' ? props.spacing : 0}rem;
+            margin-left: ${props.direction == 'row' ? props.spacing : 0}rem;
+        `}
+
+        ${ props => (props.direction == 'row-reverse' || props.direction == 'column-reverse') && css`
+            margin-right: ${ props.direction == 'row-reverse' ? props.spacing : 0}rem;
+            margin-bottom: ${ props.direction == 'column-reverse' ? props.spacing : 0}rem;
+        `}
     }
 `;
