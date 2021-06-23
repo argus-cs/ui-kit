@@ -20,7 +20,7 @@ export default {
 
 const Template: Story<IContainerProps> = (args) => (
     <Container {...args}>
-        <Box w="10rem" h="10rem" background="primary" margin="0" />
+        <Box w="100%" h="10rem" background="primary" margin="0" />
     </Container>
 );
 
