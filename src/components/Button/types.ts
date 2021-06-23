@@ -19,5 +19,18 @@ export interface ButtonProps {
      */
     color?: 'default'|'primary'|'secondary'|'success'|'warning'|'danger'
 
+    /**
+     * disable the button.
+     */
     disabled?: boolean
+    
+    /**
+     * change button layout to outlined.
+     */
+    outline?: boolean
+
+    // leftIcon?: string
+    // rightIcon?: string
+
+    // stylesIcon?: string
 }

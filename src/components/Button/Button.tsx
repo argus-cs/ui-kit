@@ -19,4 +19,5 @@ Button.defaultProps = {
     type: 'button',
     // variant: 'solid',
     disabled: false,
+    outline: false,
 }

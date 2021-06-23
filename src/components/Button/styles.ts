@@ -1,9 +1,7 @@
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
 import { ButtonProps } from './';
-
-import { theme } from '../../theme';
 
 export const Container = styled.button<ButtonProps>`
     display: inline-flex;
@@ -26,37 +24,67 @@ export const Container = styled.button<ButtonProps>`
 
     transition: all .3s;
 
-    background-color: ${props => props.color ? theme.color[props.color] : theme.color.default};
-    color: ${ props => props.color ? theme.text[props.color] : 'inherit' };
+    ${ props => {
 
-    &:hover:not(:disabled) {
-        background-color: ${ props => props.color ? darken('0.05', theme.color[props.color]) : 'inherit' };
-        color: ${ props => props.color ? theme.text[props.color] : 'inherit' };
-    }
+        switch (props.color) {
+            case 'primary':
+                return BaseButtonWithOutline(props, 'primary');
+            case 'secondary':
+                return `
+                    color: ${props.theme.pallete.secondary.contrastText};
+                    background-color: ${props.theme.pallete.secondary.main};
 
-    ${ props => props.color == 'default' && css`
-        &:hover:not(:disabled) {
-            color: ${ theme.text.secondary };
+                    &:hover:not(:disabled) {
+                        background-color: ${ darken('0.05', props.theme.pallete.primary.main) };
+                        color: ${ props.theme.pallete.primary.contrastText };
+                    }
+
+                    &:focus:not(:disabled), &:active:not(:disabled) {
+                        box-shadow: 0 0 0 3px ${lighten('0.2', props.theme.pallete.primary.main)};
+                    }
+                `;
+            case 'success':
+                return BaseButtonWithOutline(props, 'success');
+            case 'warning':
+                return BaseButtonWithOutline(props, 'warning');
+            case 'danger':
+                return BaseButtonWithOutline(props, 'danger');
+            default:
+                return `
+                    color: ${props.theme.pallete.common.text};
+                    background-color: ${props.theme.pallete.common.main};
+
+                    &:hover:not(:disabled) {
+                        background-color: ${ darken('0.05', props.theme.pallete.common.main) };
+                        color: ${ props.theme.pallete.primary.main };
+                    }
+
+                    &:focus:not(:disabled), &:active:not(:disabled) {
+                        box-shadow: 0 0 0 3px ${lighten('0.2', props.theme.pallete.primary.main)};
+                    }
+                `;
         }
-    ` }
 
-    ${props => props.color == 'secondary' && css`
-
-        color: ${ darken('0.05', theme.text[props.color]) };
-
-        &:hover:not(:disabled) {
-            background-color: ${ theme.color.primary };
-            color: ${ theme.text.primary };
-        }
-    `}
-
-    &:focus:not(:disabled), &:active:not(:disabled) {
-        box-shadow: 0 0 0 3px ${props => (props.color) ? lighten('0.1', theme.outline[props.color]) : 'inherit'};
-    }
+    }}
 
     &:disabled {
         opacity: .6;
         cursor: not-allowed;
+    }
+`;
+
+const BaseButtonWithOutline = (props: any, color: string) => `
+    color: ${props.outline ? props.theme.pallete[color].main : props.theme.pallete[color].contrastText};
+    background-color: ${props.outline ? "transparent" : props.theme.pallete[color].main};
+    border-color: ${props.outline ? props.theme.pallete[color].main : "none"};
+
+    &:hover:not(:disabled) {
+        background-color: ${ darken('0.05', props.theme.pallete[color].main) };
+        color: ${ props.theme.pallete[color].contrastText };
+    }
+
+    &:focus:not(:disabled), &:active:not(:disabled) {
+        box-shadow: 0 0 0 3px ${lighten('0.2', props.theme.pallete[color].main)};
     }
 `;
 
@@ -66,25 +94,3 @@ export const Content = styled.span`
     line-height: 1.2rem;
     white-space: nowrap;
 `;
-
-/**
- * /* ${props => (props.variant == 'outline') && css`
-        background-color: transparent;
-        color: ${props.color ? theme.color[props.color] : "#3699ff"};
-        border-color: ${props.color ? theme.color[props.color] : "#3699ff"};
-
-        &:hover {
-            background-color: ${ darken(0.1, theme.color.bg) };
-        }
-    `}
-
-    ${props => (props.variant == 'ghost') && css`
-        background-color: transparent;
-        border-color: transparent;
-        color: ${props.color ? theme.color[props.color] : "inherit"};
-
-        &:hover {
-            background-color: ${ darken(0.05, theme.color.bg) };
-        }
-    `}
- */
