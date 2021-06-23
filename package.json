@@ -10,9 +10,7 @@
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^6.2.9",
-    "@storybook/addon-centered": "^5.3.21",
     "@storybook/addon-essentials": "^6.2.9",
-    "@storybook/addon-info": "^5.3.21",
     "@storybook/addon-toolbars": "^6.2.9",
     "@storybook/react": "^6.2.9",
     "@types/react": "^17.0.11",
