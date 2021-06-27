@@ -5,7 +5,7 @@ import { Container, IContainerProps } from './';
 import { Box } from '../Box';
 
 export default {
-    title: "Container",
+    title: "Layout/Container",
     component: Container,
     argTypes: {
         size: {
@@ -25,6 +25,7 @@ const Template: Story<IContainerProps> = (args) => (
 );
 
 export const Basic = Template.bind({});
+
 Basic.args = {
     margin: '40px auto',
 }

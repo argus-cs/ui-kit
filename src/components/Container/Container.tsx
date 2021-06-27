@@ -9,7 +9,6 @@ export const Container: React.FC<IContainerProps> = (props) => (
 );
 
 Container.defaultProps = {
-    size: 'md',
     margin: '0 auto',
     centralize: false,
 }
