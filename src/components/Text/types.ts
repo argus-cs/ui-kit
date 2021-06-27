@@ -6,5 +6,5 @@ export interface TextProps {
 
     color?: keyof typeof themeSchema.pallete;
     
-    selectable?: boolean;
+    isSelectable?: boolean;
 }

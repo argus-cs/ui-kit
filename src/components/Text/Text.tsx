@@ -9,5 +9,5 @@ export const Text: React.FC<TextProps> = (props: TextProps) => <TextStyled {...p
 Text.defaultProps = {
     as: 'span',
     color: 'muted',
-    selectable: true,
+    isSelectable: true,
 }

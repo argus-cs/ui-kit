@@ -3,13 +3,9 @@ import styled from 'styled-components';
 import { TextProps } from './types';
 
 export const TextStyled = styled.p<TextProps>`
-    color: ${props => 
-        (props.color && props.theme.pallete.hasOwnProperty(props.color)) 
-        ? props.theme.pallete[props.color].main
-        : "inherit"
-    };
+    color: ${props => props.color && props.theme.pallete[props.color].main};
 
-    user-select: ${props => props.selectable ? 'auto' : 'none'};
+    user-select: ${props => props.isSelectable ? 'auto' : 'none'};
 
     h1& {
         font-size: 2.2rem;
