@@ -12,6 +12,7 @@ declare module 'styled-components' {
                 background: string;
                 main: string;
                 text: string;
+                contrastText: string;
             },
             primary: IPallete,
             secondary: IPallete,
@@ -23,9 +24,11 @@ declare module 'styled-components' {
             danger: IPallete,
         },
         breakpoints: {
+            xs: string,
             sm: string,
             md: string,
             lg: string,
+            xl: string,
         }
     }
 }

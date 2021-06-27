@@ -6,14 +6,15 @@ export const themeSchema: DefaultTheme = {
           background: "#fff",
           main: "#e1f0ff",
           text: "#2b2f38",
+          contrastText: "#2b2f38",
       },
       primary: {
-          main: "#027ac5",
+          main: "#2684FF",
           contrastText: "#fff",
       },
       secondary: {
         main: "#e1f0ff",
-        contrastText: "#027ac5"
+        contrastText: "#2684FF"
       },
       accent: {
           main: "#30aefd",
@@ -41,8 +42,10 @@ export const themeSchema: DefaultTheme = {
       }
   },
   breakpoints: {
-      sm: '40rem',
-      md: '52rem',
-      lg: '64rem',
+      xs: '0px',
+      sm: '600px',
+      md: '960px',
+      lg: '1280px',
+      xl: '1920px',
   }
 };
