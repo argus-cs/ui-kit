@@ -10,9 +10,4 @@ export const Box: React.FC<IBoxProps> = (props) => (
 
 Box.defaultProps = {
     d: 'flex',
-    h: '100px',
-    w: '200px',
-    align: 'center',
-    justify: 'center',
-    margin: 'auto',
 }

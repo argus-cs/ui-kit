@@ -6,6 +6,8 @@ export interface IBoxProps {
 
     d?: React.CSSProperties['display'];
 
+    flow?: string;
+
     align?: React.CSSProperties['alignItems'];
     justify?: React.CSSProperties['justifyContent'];
 
@@ -28,6 +30,7 @@ export interface IBoxProps {
     borderRadius?: React.CSSProperties['borderRadius'];
 
     overflow?: React.CSSProperties['overflow'];
+    cursor?: string;
 
     background?: keyof typeof themeSchema.pallete;
 
