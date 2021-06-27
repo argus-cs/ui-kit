@@ -2,10 +2,9 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 import { Button, ButtonProps } from './';
-import { Container } from '../Container';
 
 export default {
-    title: "Button",
+    title: "Atom/Button",
     component: Button,
     argTypes: {
         label: 'button',
@@ -13,10 +12,6 @@ export default {
             options: ['default', 'primary', 'secondary', 'success', 'warning', 'danger'],
             control: { type: 'select' }
         },
-        // variant: {
-        //     options: ['solid', 'outline', 'ghost', 'link'],
-        //     control: { type: 'select' }
-        // },
         type: {
             options: ['button', 'reset', 'submit'],
             control: { type: 'select' }
@@ -28,13 +23,6 @@ export default {
             control: { type: 'boolean' }
         }
     },
-    // decorators: [
-    //     (Story: any) => (
-    //       <Container centralize margin="40px auto">
-    //         <Story />
-    //       </Container>
-    //     ),
-    //   ],
 };
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />

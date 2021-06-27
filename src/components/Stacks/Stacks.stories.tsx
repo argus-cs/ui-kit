@@ -5,7 +5,7 @@ import { Stacks, StacksProps } from './';
 import { Button } from '../Button';
 
 export default {
-    title: "Stacks",
+    title: "Layout/Stacks",
     component: Stacks,
     argTypes: {
         direction: {
